@@ -1,3 +1,3 @@
-# Test
+# SwiftNIODemoProject
 
-A description of this package.
+A simple project have only Swift-NIO as dependency.
