@@ -5,9 +5,9 @@
         "package": "AssociatedTypeRequirementsKit",
         "repositoryURL": "https://github.com/nerdsupremacist/AssociatedTypeRequirementsKit.git",
         "state": {
-          "branch": null,
+          "branch": "develop",
           "revision": "2e4c49c21ffb2135f1c99fbfcf2119c9d24f5e8c",
-          "version": "0.3.2"
+          "version": null
         }
       },
       {
