@@ -1,21 +1,17 @@
 import AssociatedTypeRequirementsVisitor
-import SwiftUI
 
-private let converter = AnyViewConverter()
+private let hasher = AnyHasher()
 
-extension AnyView {
-    init?(_ value: Any) {
-        guard let view = converter(value) else { return nil }
-        self = view
+func hashValue(value: Any) -> Int {
+    // There's a function `AnyHasher.callAsFunction(_:Any) -> Int?`
+    return hasher(value) ?? 0
+}
+
+struct AnyHasher: HashableVisitor {
+    // This function will called by `callAsFunction(_:Any)` if the input conforms to hashable
+    func callAsFunction<T : Hashable>(_ value: T) -> Int {
+        return value.hashValue
     }
 }
 
-private struct AnyViewConverter : ViewVisitor {
-    // Provide a function that can be called with all the necessary type information
-    func callAsFunction<T : View>(_ value: T) -> AnyView {
-        print(#function)
-        return AnyView(value)
-    }
-}
-
-let _ = converter.callAsFunction(12)
+print(hashValue(value: 12))
